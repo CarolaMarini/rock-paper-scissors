@@ -1,0 +1,27 @@
+{
+  "name": "nicecactus",
+  "version": "1.0.0",
+  "description": "challenge test",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarolaMarini/rock-paper-scissors.git"
+  },
+  "author": "Carola Marini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarolaMarini/rock-paper-scissors/issues"
+  },
+  "homepage": "https://github.com/CarolaMarini/rock-paper-scissors#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^2.0.0"
+  }
+}

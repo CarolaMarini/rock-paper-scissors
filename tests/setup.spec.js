@@ -1,8 +1,8 @@
-test('jest setup', () => {
+it('jest setup', () => {
     expect(true).toBe(true)
 });
 
-test('puppeteer setup', () => {
+describe('puppeteer setup', () => {
     it('should define page', async () => {
         await expect(page).not.toBeNull()
     });

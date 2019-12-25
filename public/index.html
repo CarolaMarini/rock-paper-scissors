@@ -5,11 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-
+    <button id="human">Human</button>
+    <span id="humanOpts" class="hidden"></span>
+    <script>
+        let humanOptsSelector = document.querySelector("#humanOpts")
+        function showHumanOpts() {
+            humanOptsSelector.classList.toggle('hidden');
+        }
+        document.querySelector('#human').addEventListener('click', showHumanOpts)
+    </script>
 </body>
 
 </html>

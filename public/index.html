@@ -11,14 +11,13 @@
 
 <body>
     <button id="human">Human</button>
-    <span id="humanOpts" class="hidden"></span>
-    <script>
-        let humanOptsSelector = document.querySelector("#humanOpts")
-        function showHumanOpts() {
-            humanOptsSelector.classList.toggle('hidden');
-        }
-        document.querySelector('#human').addEventListener('click', showHumanOpts)
-    </script>
+    <span id="humanOpts" class="hidden">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </span>
+    <span id="computerChoice" class="hidden"> a</span>
+    <script src="script.js"></script>
 </body>
 
 </html>

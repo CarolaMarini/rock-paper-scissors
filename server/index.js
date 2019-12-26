@@ -10,9 +10,9 @@ app.use(express.static(PUBLIC_DIR));
 
 module.exports = {
     start: function start() {
-        server = app.listen(port, () => console.log(`Listening on port ${port}`))
+        server = app.listen(port)
     },
     close: function close() {
         return server.close()
-    }
+    },
 }

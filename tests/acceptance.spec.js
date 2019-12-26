@@ -45,7 +45,7 @@ describe('Rock paper scissors', () => {
             const scissorsSelector = "#scissors"
             const computerChoiceSelector = '#computerChoice'
 
-            xit('recieves computer choice', async () => {
+            it('recieves computer choice', async () => {
                 await page.waitForSelector(computerChoiceSelector)
                 await expect(page).toMatchElement(computerChoiceSelector)
                 await expect(await isHidden(computerChoiceSelector)).toBe(true)

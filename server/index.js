@@ -15,4 +15,5 @@ module.exports = {
     close: function close() {
         return server.close()
     },
+    getApp: app
 }

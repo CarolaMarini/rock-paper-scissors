@@ -12,6 +12,8 @@ describe('Rock paper scissors', () => {
 
     describe('When playing as human', () => {
 
+        const computerChoiceSelector = '#computerChoice'
+
         async function isHidden(selector) {
             return await page.$eval(selector, (elem) => {
                 return window.getComputedStyle(elem).getPropertyValue('display') == 'none'
@@ -43,14 +45,13 @@ describe('Rock paper scissors', () => {
         describe('When choosing scissors', () => {
 
             const scissorsSelector = '#scissors'
-            const computerChoiceSelector = '#computerChoice'
-
             beforeEach(async () => await page.click(scissorsSelector))
 
             it('computes the winner', async () => {
 
                 let computerChoiceElem = await expect(page).toMatchElement(computerChoiceSelector)
-                const computerChoice = await (await computerChoiceElem.getProperty('textContent')).jsonValue()
+                let computerChoice = await (await computerChoiceElem.getProperty('textContent')).jsonValue()
+                expect(computerChoice).not.toBe("")
 
                 let gameResultElem = await expect(page).toMatchElement('#gameResult')
                 let gameResult = await (await gameResultElem.getProperty('textContent')).jsonValue()
@@ -65,6 +66,61 @@ describe('Rock paper scissors', () => {
                         break
                     case 'paper':
                         await expect(gameResult).toMatch('Player 1 won!')
+                }
+            })
+        })
+
+        describe('When choosing rock', () => {
+
+            const rockSelector = '#rock'
+            beforeEach(async () => await page.click(rockSelector))
+
+            it('computes the winner', async () => {
+
+                let computerChoiceElem = await expect(page).toMatchElement(computerChoiceSelector)
+                let computerChoice = await (await computerChoiceElem.getProperty('textContent')).jsonValue()
+                expect(computerChoice).not.toBe("")
+
+                let gameResultElem = await expect(page).toMatchElement('#gameResult')
+                let gameResult = await (await gameResultElem.getProperty('textContent')).jsonValue()
+
+
+                switch (computerChoice) {
+                    case 'scissors':
+                        await expect(gameResult).toMatch('Player 1 won')
+                        break
+                    case 'rock':
+                        await expect(gameResult).toMatch('tie')
+                        break
+                    case 'paper':
+                        await expect(gameResult).toMatch('Player 2 won')
+                }
+            })
+        })
+        describe('When choosing paper', () => {
+
+            const paperSelector = '#paper'
+            beforeEach(async () => await page.click(paperSelector))
+
+            it('computes the winner', async () => {
+
+                let computerChoiceElem = await expect(page).toMatchElement(computerChoiceSelector)
+                let computerChoice = await (await computerChoiceElem.getProperty('textContent')).jsonValue()
+                expect(computerChoice).not.toBe("")
+
+                let gameResultElem = await expect(page).toMatchElement('#gameResult')
+                let gameResult = await (await gameResultElem.getProperty('textContent')).jsonValue()
+
+
+                switch (computerChoice) {
+                    case 'scissors':
+                        await expect(gameResult).toMatch('Player 2 won!')
+                        break
+                    case 'rock':
+                        await expect(gameResult).toMatch('Player 1 won!')
+                        break
+                    case 'paper':
+                        await expect(gameResult).toMatch('tie')
                 }
             })
         })

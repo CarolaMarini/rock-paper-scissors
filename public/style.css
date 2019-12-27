@@ -1,3 +1,53 @@
 .hidden{
     display: none;
 }
+
+body{
+    font-family: 'press start 2p';
+    text-align: center;
+}
+
+#title{
+    text-align: center;
+    grid-area: title;
+    font-size: larger;
+}
+
+button{
+    font-family: 'press start 2p';
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr 1fr;
+    grid-template-areas: 
+      "title title title"
+      "player1 vs player2"
+      "player1opts . computerChoice"
+      "result result result";
+}
+
+#vs{
+    grid-area: vs;
+}
+
+.player1 {
+    grid-area: player1;
+    align-self: center;
+}
+
+#humanOpts{
+    align-self: center;
+    grid-area: player1opts
+}
+
+#computerChoice{
+    grid-area: computerChoice;
+}
+
+.player2{
+    grid-area: player2;
+    align-self: center;
+}

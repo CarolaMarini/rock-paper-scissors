@@ -13,6 +13,7 @@ describe('Rock paper scissors', () => {
     describe('When player 1 is human', () => {
 
         const computerChoiceSelector = '#computerChoice'
+        const humanOptsSelector = '#humanOpts'
 
         async function isHidden(selector) {
             return await page.$eval(selector, (elem) => {
@@ -22,24 +23,26 @@ describe('Rock paper scissors', () => {
 
         beforeEach(async () => {
             const humanSelector = '#human'
-            const humanOptsSelector = '#humanOpts'
             await page.waitForSelector(humanSelector)
             await expect(await isHidden(humanOptsSelector)).toBe(true)
             await page.click(humanSelector);
             await expect(await isHidden(humanOptsSelector)).toBe(false)
         })
 
-        it('Lets you choose rock', async () => {
+        it('Lets you choose rock and hides options', async () => {
             let rockSelector = '#rock'
             await page.click(rockSelector)
+            await expect(await isHidden(humanOptsSelector)).toBe(true)
         })
-        it('Lets you choose paper', async () => {
+        it('Lets you choose paper and hides options', async () => {
             let paperSelector = '#paper'
             await page.click(paperSelector)
+            await expect(await isHidden(humanOptsSelector)).toBe(true)
         })
-        it('Lets you choose scissors', async () => {
+        it('Lets you choose scissors and hides options', async () => {
             let scissorsSelector = '#scissors'
             await page.click(scissorsSelector)
+            await expect(await isHidden(humanOptsSelector)).toBe(true)
         })
 
         describe('When choosing scissors', () => {

@@ -3,6 +3,12 @@ function show(selector) {
     elem.classList.remove('hidden');
 }
 
+function hide(selector) {
+    let elem = document.querySelector(selector)
+    elem.classList.add('hidden');
+}
+
+
 async function getWinner(player1Choice) {
     const computerChoiceSelector = '#computerChoice'
     let p2play = await axios.get('/computerPlay')
@@ -29,16 +35,19 @@ document.querySelector('#computer').addEventListener('click', async function () 
 })
 
 document.querySelector('#scissors').addEventListener('click', async function () {
+    hide('#humanOpts')
     showPlayer1Choice('scissors')
     getWinner('scissors')
 })
 
 document.querySelector('#rock').addEventListener('click', async function () {
+    hide('#humanOpts')
     showPlayer1Choice('rock')
     getWinner('rock')
 })
 
 document.querySelector('#paper').addEventListener('click', async function () {
+    hide('#humanOpts')
     showPlayer1Choice('paper')
     getWinner('paper')
 })

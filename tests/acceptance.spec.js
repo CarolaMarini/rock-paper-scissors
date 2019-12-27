@@ -45,15 +45,27 @@ describe('Rock paper scissors', () => {
             const scissorsSelector = "#scissors"
             const computerChoiceSelector = '#computerChoice'
 
-            it('recieves computer choice', async () => {
+            xit('recieves computer choice', async () => {
                 await page.waitForSelector(computerChoiceSelector)
                 await expect(page).toMatchElement(computerChoiceSelector)
                 await expect(await isHidden(computerChoiceSelector)).toBe(true)
                 await page.click(scissorsSelector);
                 await expect(await isHidden(computerChoiceSelector)).toBe(false)
-                let elem = await expect(page).toMatchElement(computerChoiceSelector)
-                const text = await (await elem.getProperty('textContent')).jsonValue()
+                let computerChoiceElem = await expect(page).toMatchElement(computerChoiceSelector)
+                const text = await (await computerChoiceElem.getProperty('textContent')).jsonValue()
                 await expect(text).toMatch(/rock|paper|scissors/)
+                let gameResultElem = await expect(page).toMatchElement("#gameResult")
+                let gameResult = await (await gameResultElem.getProperty('textContent')).jsonValue()
+                switch (text) {
+                    case "scissors":
+                        await expect(gameResult).toMatch("tie")
+                        break
+                    case "rock":
+                        await expect(gameResult).toMatch("Computer won :(")
+                        break
+                    case "paper":
+                        await expect(gameResult).toMatch("You won!")
+                }
             })
         })
 

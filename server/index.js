@@ -6,6 +6,8 @@ const PUBLIC_DIR = path.join(__dirname, "../public");
 const router = require("../routes")
 let server;
 
+app.use(express.json())
+
 app.use(express.static(PUBLIC_DIR));
 app.use('/', router)
 

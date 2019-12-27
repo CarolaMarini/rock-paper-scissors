@@ -10,7 +10,7 @@ describe('Rock paper scissors', () => {
         await expect(page.title()).resolves.toMatch('Rock Paper Scissors')
     })
 
-    describe('When playing as human', () => {
+    describe('When player 1 is human', () => {
 
         const computerChoiceSelector = '#computerChoice'
 
@@ -125,6 +125,21 @@ describe('Rock paper scissors', () => {
             })
         })
 
+
+    })
+
+    describe('When player 1 is computer', () => {
+        beforeEach(async () => {
+            const computerSelector = '#computer'
+            await expect(page).toClick(computerSelector)
+        })
+
+        it('Shows players choices and calculates winner', async () => {
+            await expect(page).toMatchElement('#player1Choice', { text: /rock|paper|scissors/ })
+            let gameResultElem = await expect(page).toMatchElement('#gameResult')
+            let gameResult = await (await gameResultElem.getProperty('textContent')).jsonValue()
+            await expect(gameResult).not.toBe("")
+        })
     })
 
     afterEach(async () => {

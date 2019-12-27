@@ -21,16 +21,23 @@ button{
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.5fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr;
     grid-template-areas: 
       "title title title"
       "player1 vs player2"
-      "player1opts . computerChoice"
+      "player1opts . ."
+      "player1Choice . computerChoice"
       "result result result";
+}
+
+#gameResult{
+    grid-area: result;
+    align-self: center;
 }
 
 #vs{
     grid-area: vs;
+    align-self: center;
 }
 
 .player1 {
@@ -45,9 +52,14 @@ button{
 
 #computerChoice{
     grid-area: computerChoice;
+    align-self: center;
 }
 
 .player2{
     grid-area: player2;
     align-self: center;
+}
+
+#player1Choice{
+    grid-area: player1Choice
 }

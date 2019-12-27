@@ -1,8 +1,9 @@
 # Rock, Paper, Scissors
 
-### Setup
+### Setup and run
 
     npm i
+    npm start
 
 ## User Story Front
 
@@ -29,3 +30,20 @@ As a frequent games player, I like to play rock, paper, scissors  so that I can 
                                                   
  
 Don't know the game? click [here](http://en.wikipedia.org/wiki/Rock-paper-scissors)
+
+## Sources and links
+
+Some of the links that helped me throughout this project 
+
+-https://zellwk.com/blog/endpoint-testing/
+-https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer#toMatchElement
+-https://github.com/smooth-code/jest-puppeteer
+-https://jestjs.io/docs/en/expect
+-https://hackernoon.com/api-testing-using-supertest-1f830ce838f1
+-https://dev.to/nedsoft/testing-nodejs-express-api-with-jest-and-supertest-1km6 
+-https://scotch.io/tutorials/asynchronous-javascript-using-async-await
+-https://www.npmjs.com/package/supertest
+-https://css-tricks.com/snippets/css/complete-guide-grid/
+-https://attacomsian.com/blog/axios-javascript
+-https://zellwk.com/blog/endpoint-testing/
+
